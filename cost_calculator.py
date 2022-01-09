@@ -50,3 +50,20 @@ def calculate_total(bc: BreakdownCosts()):
         quantity=sum(bc.data[QUANTITY_NAME])
     )
     return bc
+
+
+def get_cost_breakdown(initial_cost, iaj, itp, iva):
+    bc = BreakdownCosts()
+    bc.add_cost("Coste inicial", "100%", initial_cost)
+
+    bc = calculate_taxes(
+        bc,
+        initial_cost,
+        iaj,
+        itp,
+        iva
+    )
+
+    bc = calculate_total(bc)
+
+    return bc
