@@ -12,6 +12,7 @@ class Taxes:
 
 
 IVA = 10
+IBI = 0.7  # Goes from 0.4 to 1.1 depending on the city
 
 TAXES_BY_PROVINCES = {
     "Seleccione una provincia": None,

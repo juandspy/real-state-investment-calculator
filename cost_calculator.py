@@ -32,17 +32,7 @@ def calculate_taxes(bc: BreakdownCosts(), initial_cost, iaj, itp, iva):
     return bc
 
 
-def calculate_maintenance(bc: BreakdownCosts()):
-    """To be done."""
-    return bc
-
-
-def calculate_risks(bc: BreakdownCosts()):
-    """To be done."""
-    return bc
-
-
-def calculate_total(bc: BreakdownCosts()):
+def calculate_total(bc: BreakdownCosts):
     """Aggregates all the costs in the dictionary"""
     bc.add_cost(
         _type="Total",
@@ -52,7 +42,7 @@ def calculate_total(bc: BreakdownCosts()):
     return bc
 
 
-def get_cost_breakdown(initial_cost, iaj, itp, iva):
+def get_buy_cost_breakdown(initial_cost, iaj, itp, iva):
     bc = BreakdownCosts()
     bc.add_cost("Coste inicial", "100%", initial_cost)
 
@@ -63,6 +53,8 @@ def get_cost_breakdown(initial_cost, iaj, itp, iva):
         itp,
         iva
     )
+
+    bc.add_cost("Notaría y registro", "", 1500)
 
     bc = calculate_total(bc)
 
